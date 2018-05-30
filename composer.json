@@ -1,0 +1,17 @@
+{
+  "name": "rikudou/enums-trait",
+  "type": "library",
+  "description": "Trait for creating enums in php",
+  "keywords": [
+    "enum"
+  ],
+  "license": "WTFPL",
+  "autoload": {
+    "psr-4": {
+      "rikudou\\PHPEnum\\": "src/"
+    }
+  },
+  "requires": {
+    "php": ">=5.4"
+  }
+}
