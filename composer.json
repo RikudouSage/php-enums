@@ -11,7 +11,7 @@
       "rikudou\\PHPEnum\\": "src/"
     }
   },
-  "requires": {
+  "require": {
     "php": ">=5.4"
   }
 }
