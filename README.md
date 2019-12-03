@@ -5,9 +5,6 @@ This is yet another PHP enum implementation.
 What is so different about this one? It uses trait which solves one problem all the
 other implementations I've seen have - extending some base enum class.
 
-Why is it a problem? If you typehint, let's say `MyCoolEnum`, you can pass an instance
-of the base class (or interface). Trait solves this problem.
-
 All the enums return the same instance for the same enum, so you can check for equality
 (`===`) and the result is true.
 
@@ -36,10 +33,9 @@ Usage:
 
 use rikudou\PHPEnum\EnumTrait;
 
-class MyCoolEnum {
-  
+class MyCoolEnum
+{
   use EnumTrait;
-  
 }
 ```
 
@@ -67,8 +63,8 @@ If you want IDE completion you have two options:
 
 use rikudou\PHPEnum\EnumTrait;
 
-class MyCoolEnum {
-  
+class MyCoolEnum
+{
   use EnumTrait;
   
   public static function EnumValue1() {
@@ -78,7 +74,6 @@ class MyCoolEnum {
   public static function EnumValue2() {
     return static::_get("EnumValue2");
   }
-  
 }
 ```
 
@@ -95,10 +90,9 @@ use rikudou\PHPEnum\EnumTrait;
  * @method static static EnumValue1()
  * @method static static EnumValue2()
  */
-class MyCoolEnum {
-  
+class MyCoolEnum
+{ 
   use EnumTrait;
-  
 }
 ```
 
@@ -114,21 +108,22 @@ method, you can limit them like this:
 
 use rikudou\PHPEnum\EnumTrait;
 
-class MyCoolEnum {
-  
+class MyCoolEnum
+{
   use EnumTrait;
   
-  private static function allowedValues() {
+  private static function allowedValues()
+  {
     return [
       "Value1",
       "Value2",
     ];
   }
   
-  public static function Value3() {
+  public static function Value3()
+  {
     return static::_get("Value3");
-  }
-  
+  } 
 }
 ```
 
@@ -143,14 +138,13 @@ you create manually.
 ```php
 <?php
 
-function doSomething(MyCoolEnum $myCoolEnum) {
+function doSomething(MyCoolEnum $myCoolEnum)
+{
   switch ($myCoolEnum) {
     case MyCoolEnum::Value1():
       return "Value1";
-      break;
     case MyCoolEnum::Value2():
       return "Value2";
-      break;
     // etc
   }
 }
